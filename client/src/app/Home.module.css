@@ -1,0 +1,75 @@
+/* Estilo principal da página */
+.mainContainer {
+    background-color: #111827; /* Um cinza-azulado escuro */
+    color: #FFFFFF;
+    min-height: 100vh;
+    padding: 2rem;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.contentWrapper {
+    max-width: 896px;
+    margin: 0 auto;
+}
+
+.title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #E5E7EB; /* Branco acinzentado */
+}
+
+.articlesGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* Espaçamento entre os cartões */
+}
+
+/* O cartão de cada notícia (efeito Glassmorphism) */
+.card {
+    background: rgba(31, 41, 55, 0.5); /* Fundo com 50% de transparência */
+    border-radius: 0.75rem; /* Bordas um pouco mais arredondadas */
+    padding: 1.5rem;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px); /* O efeito de desfoque do vidro */
+}
+
+.card:hover {
+    background-color: rgba(55, 65, 81, 0.7);
+    transform: translateY(-5px); /* Efeito de elevação ao passar o mouse */
+}
+
+.cardImage {
+    width: 100%;
+    height: 14rem;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    margin-bottom: 1.25rem;
+}
+
+.cardTitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: #F9FAFB;
+}
+
+.cardDescription {
+    color: #D1D5DB; /* Um cinza mais claro para a descrição */
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.cardMeta {
+    font-size: 0.875rem;
+    color: #9CA3AF; /* Cinza médio */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
