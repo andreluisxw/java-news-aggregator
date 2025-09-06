@@ -37,13 +37,18 @@ public class NewsService {
         this.sourceRepository = sourceRepository;
     }
 
+    public List<Article> getAllArticles() {
+        // Chama o novo método do repositório para buscar os artigos ordenados
+        return articleRepository.findAllByOrderByPublishedAtDesc();
+    }
+
     public void fetchAndSaveNews() {
         // Monta a URL para buscar as principais notícias de tecnologia do Brasil
         String url = apiUrl + "?country=us&apiKey=" + apiKey;
 
         // 1. Criamos os "cabeçalhos" da nossa requisição.
         HttpHeaders headers = new HttpHeaders();
-        // 2. nos identificamos como um navegador comum para evitar bloqueios.
+        // 2. Identificamo-nos como um navegador comum para evitar bloqueios.
         headers.set("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36");
 
         // 3. Empacotamos os cabeçalhos em uma "entidade de requisição".

@@ -1,9 +1,12 @@
 package br.com.andre.news_aggregator.controller;
 
+import br.com.andre.news_aggregator.model.Article;
 import br.com.andre.news_aggregator.service.NewsService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 // @RestController: marca a classe como um Controller de API REST.
 // Isso significa que os métodos aqui retornarão dados (JSON, XML, texto) diretamente no corpo da resposta.
@@ -29,5 +32,12 @@ public class NewsController {
 
         // Retorna uma mensagem simples de sucesso para o navegador.
         return "Notícias buscadas e salvas com sucesso!";
+    }
+
+    @GetMapping("/articles")
+    public List<Article> listArticles() {
+        // Chama o serviço para obter a lista de artigos e a retorna.
+        // O Spring Boot converterá automaticamente esta lista para JSON.
+        return newsService.getAllArticles();
     }
 }
