@@ -1,7 +1,10 @@
-📜 Visão Geral do Projeto
+## News Aggregator (Full-Stack)
+News Aggregator é uma aplicação web full-stack completa que busca as notícias mais recentes de uma API externa, as processa e as exibe em uma interface limpa e moderna. O projeto foi desenvolvido utilizando uma arquitetura Monorepo, separando o backend (api) e o frontend (client) em módulos distintos, mas mantendo-os em uma base de código unificada.
+
+##📜 Visão Geral do Projeto
 O objetivo deste projeto é demonstrar a construção de uma aplicação web moderna de ponta a ponta, integrando um backend robusto e escalável com um frontend reativo e performático. O sistema lida com consumo de APIs de terceiros, persistência de dados em um banco relacional, exposição de uma API REST segura e a renderização de dados no lado do cliente.
 
-✨ Funcionalidades Principais
+##✨ Funcionalidades Principais
 Backend (api):
 
 Consumo de API Externa: Conecta-se à NewsAPI.org para buscar notícias em tempo real.
@@ -24,7 +27,7 @@ Design Moderno: Interface com tema escuro e layout em cartões, focada na legibi
 
 Consumo de API: Faz chamadas para a API do backend para buscar e exibir a lista de notícias.
 
-🏗️ Arquitetura do Sistema
+##🏗️ Arquitetura do Sistema
 O projeto utiliza uma Arquitetura em Camadas no backend para garantir a separação de responsabilidades. O frontend atua como um consumidor dessa API.
 
 Fluxo de Dados:
@@ -42,7 +45,7 @@ Os dados retornam como Entidades JPA, são convertidos para DTOs pelo Service, e
 
 O Frontend recebe o JSON e renderiza os componentes visuais.
 
-🗄️ Modelo do Banco de Dados
+##🗄️ Modelo do Banco de Dados
 O banco de dados foi projetado de forma relacional para garantir a integridade dos dados.
 
 Tabela sources: Armazena as fontes das notícias de forma única (id, name).
