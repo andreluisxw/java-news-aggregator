@@ -1,5 +1,6 @@
 package br.com.andre.news_aggregator.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;

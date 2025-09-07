@@ -1,6 +1,7 @@
 package br.com.andre.news_aggregator.service;
 
 import br.com.andre.news_aggregator.dto.ArticleDTO;
+import br.com.andre.news_aggregator.dto.ArticleResponseDTO;
 import br.com.andre.news_aggregator.dto.NewsApiResponseDTO;
 import br.com.andre.news_aggregator.model.Article;
 import br.com.andre.news_aggregator.model.Source;
@@ -16,6 +17,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class NewsService {
@@ -37,9 +39,12 @@ public class NewsService {
         this.sourceRepository = sourceRepository;
     }
 
-    public List<Article> getAllArticles() {
-        // Chama o novo método do repositório para buscar os artigos ordenados
-        return articleRepository.findAllByOrderByPublishedAtDesc();
+    // ALTERE O MÉTODO getAllArticles para retornar uma lista de DTOs
+    public List<ArticleResponseDTO> getAllArticles() {
+        return articleRepository.findAllByOrderByPublishedAtDesc() // Busca as entidades
+                .stream()                                         // Cria um fluxo de dados
+                .map(ArticleResponseDTO::new)                     // Para cada entidade, cria um DTO
+                .collect(Collectors.toList());                    // Coleta tudo em uma nova lista
     }
 
     public void fetchAndSaveNews() {
@@ -65,9 +70,9 @@ public class NewsService {
             System.out.println(">>> [INFO] Artigos recebidos da API: " + articlesFromApi.size());
 
             for (ArticleDTO articleDto : articlesFromApi) {
-                // Validação para pular artigos com dados essenciais faltando
-                if (articleDto.getUrl() == null || articleDto.getSource() == null || articleDto.getSource().getName() == null || articleDto.getTitle() == null) {
-                    continue;
+                if (articleDto.getTitle() == null || articleDto.getTitle().isEmpty() || articleDto.getUrl() == null) {
+                    System.out.println(">>> [WARN] Artigo pulado por não ter título ou URL.");
+                    continue; // Pula para a próxima iteração do loop
                 }
 
                 // Lógica para encontrar ou criar a Fonte (Source)

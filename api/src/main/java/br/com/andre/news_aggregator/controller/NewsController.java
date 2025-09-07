@@ -1,6 +1,6 @@
 package br.com.andre.news_aggregator.controller;
 
-import br.com.andre.news_aggregator.model.Article;
+import br.com.andre.news_aggregator.dto.ArticleResponseDTO;
 import br.com.andre.news_aggregator.service.NewsService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,10 +34,9 @@ public class NewsController {
         return "Notícias buscadas e salvas com sucesso!";
     }
 
+    // ALTERE O MÉTODO listArticles para usar o DTO
     @GetMapping("/articles")
-    public List<Article> listArticles() {
-        // Chama o serviço para obter a lista de artigos e a retorna.
-        // O Spring Boot converterá automaticamente esta lista para JSON.
+    public List<ArticleResponseDTO> listArticles() {
         return newsService.getAllArticles();
     }
 }
