@@ -6,7 +6,7 @@
 [![React](https://img.shields.io/badge/React-18.x-61DAFB.svg?logo=react&logoColor=white)](https://react.dev/)
 [![PostgreSQL](https://img.shields.io/badge/Database-PostgreSQL-blue.svg)](https://www.postgresql.org/)
 
-**News Aggregator** é uma aplicação web full-stack completa que busca as notícias mais recentes de uma API externa, as processa e as exibe em uma interface limpa e moderna. O projeto foi desenvolvido utilizando uma arquitetura Monorepo, separando o backend (`api`) e o frontend (`client`) em módulos distintos.
+**News Aggregator** é uma aplicação web full-stack completa que busca as notícias mais recentes de uma API externa, as processa e as exibe em uma interface. O projeto foi desenvolvido utilizando uma arquitetura Monorepo, separando o backend (`api`) e o frontend (`client`) em módulos distintos.
 
 ---
 
